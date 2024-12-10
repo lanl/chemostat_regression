@@ -1,6 +1,6 @@
 # chemostat_regression
 
-Analyze chemostat optical density time series data, specifying parameters to automatically detect dilution cyucles over which growth rate regression slopes are calculated.
+Analyze chemostat optical density time series data, specifying parameters to automatically detect dilution cycles over which growth rate regression slopes are calculated.
 
 
 
