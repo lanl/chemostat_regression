@@ -1,5 +1,7 @@
 # chemostat_regression
 
+**Developed at Los Alamos National Laboratory (O# O4801)**
+
 Analyze chemostat optical density time series data, specifying parameters to automatically detect dilution cycles over which growth rate regression slopes are calculated.
 
 
