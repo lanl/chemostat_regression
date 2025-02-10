@@ -132,7 +132,7 @@ Rscript chemostat_regression.R --help
 
 | Parameter | Default | Description |
 | --- | --- | -- |
-| --help | n/a	Show this help message and exit |
+| --help | n/a	| Show this help message and exit |
 | --infile | n/a | Input file containing chemostat data. tab- and comma-delimited files accepted. |
 | --dir_out | n/a | Output directory |
 | --col_time | exp_time | Column in input file containing time series values. |
