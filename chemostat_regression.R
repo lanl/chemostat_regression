@@ -1,6 +1,39 @@
 #!/usr/bin/env Rscript
 
 # ______________________________ ------------------------------------------
+# README ------------------------------------------------------------------
+
+#' ABOUT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' - This file contains the code necessary for executing chemostat_regression, either on the command line or via R-Studio.
+
+#' PARAMETERS ~~~~~~~~~~~~~~~~~~~~~~~~~
+#' - If executing from the command line, parameters are loaded through the function "args_rscript()". See the affiliated publication for more details.
+#' - If executing thropugh RStudio, parameters are defined through the function "args_rstudio()". The software comes pre-loaded with default values supplied.
+
+#' CODE STRUCTURE ~~~~~~~~~~~~~~~~~~~~~
+#' This file is organized into the following 4 sections:
+#'  - README:                 Provides a description of this file and how to use it.
+#'  - Parameters:             Defines functions for executing the software via command line ior RStudio
+#'  - chemostat_regression:   Defines the core chemostat_regression algorithm and all of the functions that it is comprised of.
+#'  - Main:                   The section where parameters are loaded and the software is executed.
+
+#'  RSTUDIO EXECUTION ~~~~~~~~~~~~~~~~~
+#'  To execute RStudio from this file, perform the following steps. For more details, refer to the publication associated with this software.
+#'    1. Ensure R-Studio is opened in an environment with all required packages installed:
+#'      - argparse
+#'      - ggplot2
+#'      - rstudioapi
+#'    2. Modify the valuesd within the function "args_rstudio()" to specify all requisite input files and parameters
+#'    3. Run the entire script. This will load all functions from sections "Parameters" and "chemostat_regression" into memory, and then execute the sofware in section "Main".
+#'      - To run the entire script on MacOS, press Ctrl + Alt + R
+#'      - To run the entier script on Windows, press Ctrl + Shift + Enter
+#'    4. Successful execution will yield no errors on the console. Note that some "Warning()" messages may occur, and can be ignored. Navigate to your defined output folder to explore results.
+
+
+
+
+
+# ______________________________ ------------------------------------------
 # Parameters --------------------------------------------------------------
 
 ## RStudio execution
@@ -13,7 +46,7 @@ args_rstudio <- function() {
   
   ## Define Arguments
   args <- list(
-    infile         = "example_data/ancestor_dither.csv",
+    infile         = "example_data/example_data.csv",
     dir_out        = "output",
     col_time       = "exp_time",
     convert_time   = "s-h",
@@ -62,7 +95,7 @@ args_rscript <- function() {
   parser$add_argument(
     "--col_time",
     help = "Column in input file containing time series values.",
-    required = T, default = "exp_time" )
+    required = F, default = "exp_time" )
   
   parser$add_argument(
     "--convert_time",
@@ -72,27 +105,27 @@ args_rscript <- function() {
   parser$add_argument(
     "--col_od",
     help = "Column in input file containing optical density measurement values.",
-    required = T, default = "od_measured" )
+    required = F, default = "od_measured" )
   
   parser$add_argument(
     "--col_pump_fresh",
     help = "Column in input file containing fresh pump rate values.",
-    required = T, default = "pump_1_rate" )
+    required = F, default = "pump_1_rate" )
   
   parser$add_argument(
     "--col_pump_waste",
     help = "Column in input file containing waste pump rate values.",
-    required = T, default = "pump_2_rate" )
+    required = F, default = "pump_2_rate" )
   
   parser$add_argument(
     "--cycle_buffer",
     help = "The number of time points that must pass before the detection of another peak may occur.",
-    required = T, default = 25 )
+    required = F, default = 25 )
   
   parser$add_argument(
     "--extrema_range",
     help = "Number of time points +/- cycle index to search for local extrema.",
-    required = T, default = 20 )
+    required = F, default = 20 )
   
   parser$add_argument(
     "--color_lines",
@@ -170,6 +203,18 @@ identify_and_set_wd_either <- function(n_back=0) {
   }
 
   return(path_base)
+}
+
+make_path <- function(dir_out) {
+  "
+  ____________________________________________________________________________
+  Description
+   - Creates a path recursively
+  ____________________________________________________________________________
+  Arguments
+  - path    The file path to be created
+  "
+  dir.create(path=dir_out, recursive=T, showWarnings=F)
 }
 
 parse_filename_base <- function(infile) {
@@ -720,6 +765,9 @@ chemostat_regression <- function(infile, dir_out, col_time, col_od, col_pump_fre
   - linewidth         Line width for figure lines
   - textsize          Text size for figures
   "
+  
+  ## Create output directory
+  make_path(dir_out)
   
   ## Parse input file name
   filename <- parse_filename_base(
