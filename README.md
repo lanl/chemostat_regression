@@ -11,15 +11,26 @@ Analyze chemostat optical density time series data, specifying parameters to aut
 <br /> <br />
 
 # Table of Contents
-1. [About](#About)
-2. [Dependencies](#Dependencies)
-3. [Downloading chemostat_regression](#Downloading)
-4. [Parameters](#Parameters)
-5. [Execution](#Execution)
+1. [License](#License)
+2. [About](#About)
+3. [Dependencies](#Dependencies)
+4. [Downloading chemostat_regression](#Downloading)
+5. [Parameters](#Parameters)
+6. [Execution](#Execution)
     - [Command line](#Command)
     - [R-Studio](#Rstudio)
     - [R-Shiny](#Rshiny)
-6. [Output](#Output)
+7. [Output](#Output)
+
+
+
+
+
+<br /> <br />
+
+# License <a name="License"></a>
+
+This software is licensed under the [BSD 3-Clause License](#https://opensource.org/license/BSD-3-Clause). Please refer to [LICENSE](#https://github.com/lanl/chemostat_regression/blob/main/LICENSE) file for exact license text.
 
 
 
