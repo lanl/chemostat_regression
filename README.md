@@ -30,7 +30,7 @@ Analyze chemostat optical density time series data, specifying parameters to aut
 
 # License <a name="License"></a>
 
-This software is licensed under the [BSD 3-Clause License](#https://opensource.org/license/BSD-3-Clause). Please refer to [LICENSE](#https://github.com/lanl/chemostat_regression/blob/main/LICENSE) file for exact license text.
+This software is licensed under the [BSD 3-Clause License](https://opensource.org/license/BSD-3-Clause). Please refer to [LICENSE](https://github.com/lanl/chemostat_regression/blob/main/LICENSE) file for exact license text.
 
 
 
@@ -59,12 +59,12 @@ The chemostat_regression software has three methods of execution: command-line, 
 This software requires up-to-date installations of R and R-Studio. The software environment managers Mamba or Anaconda are strongly recommended for downloading R packages and handling environment compatibility issues. Mamba is preferred over Anaconda due to its greatly improved speed.
 
 Software:
-- [R](#https://www.r-project.org/)
-- [R-Studio](#https://posit.co/download/rstudio-desktop/)
+- [R](https://www.r-project.org/)
+- [R-Studio](https://posit.co/download/rstudio-desktop/)
 
 Environment manager:
-- [Mamba (Preferred)](#https://www.r-project.org/)
-- [Anaconda](#https://www.r-project.org/)
+- [Mamba (Preferred)](https://www.r-project.org/)
+- [Anaconda](https://www.r-project.org/)
 
 
 
